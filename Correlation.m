@@ -1,4 +1,4 @@
-First;
+Summary;
 % used a sample of 200 because the graphs look messy when I use all of the
 % data
 AreaBurnedSample=AreaBurned(1:200,:);
