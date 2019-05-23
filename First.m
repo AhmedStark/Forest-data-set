@@ -6,12 +6,12 @@ index=ForestFiresTable.area>0;
 ForestFiresTable=ForestFiresTable(index,:);
 
 %randomising data.
-randSample=ForestFiresTable(randperm(end),:);
+randTable=ForestFiresTable(randperm(end),:);
 
 % AttributesUsed has all the attributes except day and month because they
 % are irrelevant to the classification. 
 
-AttributesUsed=[ForestFiresTable(:,1:2),ForestFiresTable(:,5:13)];
+AttributesUsed=[randTable(:,1:2),randTable(:,5:13)];
 
 
 % Converted everythig to arrays.
