@@ -1,0 +1,39 @@
+[System]
+Name='FuzzySurface'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=2
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Temp'
+Range=[5.8 28.2]
+NumMFs=3
+MF1='low':'trimf',[0 11 21.9]
+MF2='high':'trimf',[21.9 25 28.2]
+MF3='medium':'trimf',[11 18 25]
+
+[Input2]
+Name='Humidity'
+Range=[24 73]
+NumMFs=3
+MF1='low':'trimf',[23 33 43]
+MF2='medium':'trimf',[33 43 68.92]
+MF3='high':'trimf',[43 65 90]
+
+[Output1]
+Name='AreaBurned'
+Range=[0 1091]
+NumMFs=2
+MF1='small':'gaussmf',[30 70]
+MF2='large':'gaussmf',[219.8 1059]
+
+[Rules]
+2 0, 2 (1) : 1
+0 3, 1 (1) : 1

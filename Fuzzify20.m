@@ -6,16 +6,16 @@ IndexLargeArea=All20Table.AreaBurned>=100;
 
 All20=table2array(All20Table);
 
-SamplesResult=[All20,IndexLargeArea];
 
 % Getting results
 load("20SamplesResults");
-SamplesResult=[SamplesResult,All(:,5)];
+Predict=All(:,5)>=100;
+SamplesResult=[IndexLargeArea,All(:,5)>=100];
 
-confusionFuzzy=confusionmat(All(:,4),All(:,5));
+confusionFuzzy=confusionmat(SamplesResult(:,1),SamplesResult(:,2));
 
-confChartFuzzy=confusionchart(All(:,4),All(:,5));
-title("KNN confusion matrix");
+confChartFuzzy=confusionchart(SamplesResult(:,1),SamplesResult(:,2));
+title("confusion matrix for 20 samples");
 
 % Accuracy =(TP+TN)/total 
 Accuracy20=(confusionFuzzy(1,1)+confusionFuzzy(2,2))/20;
